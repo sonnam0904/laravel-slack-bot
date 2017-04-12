@@ -1,6 +1,6 @@
 <?php
 
-namespace NicolasMahe\SlackOutput\Library;
+namespace Sonnn\SlackOutput\Library;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Console\Scheduling\Event;
