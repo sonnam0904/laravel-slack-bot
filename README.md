@@ -10,22 +10,22 @@ This package provides:
 * ## Stats Command
 	Send stats about your Laravel app with this customizable command.
 	
-	![Stats on Slack](https://raw.githubusercontent.com/NicolasMahe/Laravel-SlackOutput/master/screenshots/stats.png)
+	![Stats on Slack](https://raw.githubusercontent.com/Sonnn/Laravel-SlackOutput/master/screenshots/stats.png)
 	
 * ## Exceptions handler
 	Output to Slack useful information about exceptions when they occurred.
 	
-	![Exception on Slack](https://raw.githubusercontent.com/NicolasMahe/Laravel-SlackOutput/master/screenshots/exception.png)
+	![Exception on Slack](https://raw.githubusercontent.com/Sonnn/Laravel-SlackOutput/master/screenshots/exception.png)
 	
 * ## Failed jobs handler
 	Get alerted when a job failed.
 	
-	![Job failed on Slack](https://raw.githubusercontent.com/NicolasMahe/Laravel-SlackOutput/master/screenshots/jobOutput.png)
+	![Job failed on Slack](https://raw.githubusercontent.com/Sonnn/Laravel-SlackOutput/master/screenshots/jobOutput.png)
 	
 * ## Scheduled commands reporting
 	Keep an eye on the result of your scheduled commands.
 	
-	![Scheduled command on Slack](https://raw.githubusercontent.com/NicolasMahe/Laravel-SlackOutput/master/screenshots/scheduledCommand.png)
+	![Scheduled command on Slack](https://raw.githubusercontent.com/Sonnn/Laravel-SlackOutput/master/screenshots/scheduledCommand.png)
 	
 
 # Requirements
@@ -38,7 +38,7 @@ This package provides:
 You can install the package using the [Composer](https://getcomposer.org/) package manager. You can install it by running this command in your project root:
 
 ```sh
-composer require nicolasmahe/laravel-slack-output
+composer require sonnn/laravel-slack-bot
 ```
 
 You need to include the service provider and the facade in your Laravel app.
@@ -48,7 +48,7 @@ Add the service provider to the `providers` array in `config/app.php`:
 ```php
 'providers' => [
   ...
-  NicolasMahe\SlackOutput\ServiceProvider::class,
+  Sonnn\SlackOutput\ServiceProvider::class,
 ],
 ```
 
@@ -57,14 +57,14 @@ and then add the facade to your `aliases` array:
 ```php
 'aliases' => [
   ...
-  'SlackOutput' => NicolasMahe\SlackOutput\Facade\SlackOutput::class,
+  'SlackOutput' => Sonnn\SlackOutput\Facade\SlackOutput::class,
 ],
 ```
 
 Publish the configuration file with:
 
 ```sh
-php artisan vendor:publish --provider="NicolasMahe\SlackOutput\ServiceProvider"
+php artisan vendor:publish --provider="Sonnn\SlackOutput\ServiceProvider"
 ```
 
 
@@ -142,7 +142,7 @@ protected function schedule(Schedule $schedule)
 To report useful exception to Slack, open `app/Exceptions/Handler.php`, and transform it like:
 
 ```php
-use NicolasMahe\SlackOutput\Facade\SlackOutput;
+use Sonnn\SlackOutput\Facade\SlackOutput;
 
 ...
 
@@ -164,7 +164,7 @@ This will only reports exceptions that are not in the `$dontReport` array in the
 To report failed jobs to Slack, open `app/Providers/AppServiceProvider.php`, and transform it like:
 
 ```php
-use NicolasMahe\SlackOutput\Facade\SlackOutput;
+use Sonnn\SlackOutput\Facade\SlackOutput;
 
 ...
 
@@ -182,7 +182,7 @@ public function boot()
 To report the output of scheduled commands to Slack, open `app/Console/Kernel.php`, and transform it like:
 
 ```php
-use NicolasMahe\SlackOutput\Facade\SlackOutput;
+use Sonnn\SlackOutput\Facade\SlackOutput;
 
 ...
 
